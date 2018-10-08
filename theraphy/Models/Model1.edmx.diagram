@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f5c3d9747bae471da5c2df8984d506ab" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.about_us" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.carousel" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.configuration" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.CONTACT" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.login" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.news" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.our_team" Width="1.5" PointX="3" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.patient" Width="1.5" PointX="3" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.service" Width="1.5" PointX="3" PointY="33.625" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.FK_about_us_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_about_us_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_carousel_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_carousel_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_configuration_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_configuration_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_CONTACT_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_CONTACT_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_login_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_login_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_news_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_news_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_our_team_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_our_team_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_patient_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_patient_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_service_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_service_ToTable_1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

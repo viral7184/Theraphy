@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "tabledata";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>tabledata</title>
+</head>
+<body>
+    <div>
+        <table id="fileTable" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="fileTable_info">
+            <thead>
+                <tr>
+                    <th>SR NO</th>
+                    <th>Quality</th>
+                    <th>Meters</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                    @{int i = 1;}
+
+                        <tr>
+                            <td>
+                                <span>@i</span>
+                            </td>
+
+
+                            <td>
+                                @item.DEGREE
+                            </td>
+                            <td>
+                                @item.EXPERIENCE
+                            </td>
+                            <td>
+                                @item.SPECIALITY
+                            </td>
+
+
+                            <td>
+                                <a onclick="OpenDialog(@item.ID)" style="display:inline" data-toggle="modal" data-target="#myModal" type="button"> <i class="fa fa-edit"></i></a>
+                                <a style="display:inline" class="hide_me" onclick="Delete(@item.ID,'del')"> &nbsp; <i class="fa fa-trash"></i> </a>
+                            </td>
+
+                        </tr>
+                        i++;
+
+                </tbody>
+
+
+        </table>
+
+    </div>
+</body>
+</html>
+

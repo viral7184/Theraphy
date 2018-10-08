@@ -1,0 +1,263 @@
+﻿
+@{
+    ViewBag.Title = "patient";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="content">
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Patient</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- /.box-header -->
+                    <form method="post" enctype="multipart/form-data" id="myForm">
+
+                        <div class="form-group ">
+                            <label>Patient Name</label>
+                            <input type="text" class="form-control" name="PATIENT_NAME" id="patient_name" placeholder="Enter Patient Name">
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+
+                        <div class="form-group ">
+                            <label>Patient Of</label>
+                            <input type="text" class="form-control" name="PATIENT_OF" id="patient_of" placeholder="Enter Patient Of">
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+
+                        <div class="form-group ">
+                            <label>Testimonial</label>
+                            <textarea  class="form-control" name="PATIENT_TESTIMONIAL" id="testimonial" placeholder="Enter Testimonial"></textarea>
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+
+                        <div class="form-group ">
+                            <label>Age</label>
+                            <input type="number" class="form-control" name="PATIENT_AGE" id="age" placeholder="Enter Age">
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label>Is Active</label><br />
+                                <input type="radio" name="IS_ACTIVE" id="radio1" value="true" checked> Yes
+                                <input type="radio" name="IS_ACTIVE" id="radio2" value="false"> No
+                            </div>
+                        </div>
+                      
+                        <div class="box-footer">
+                            <input type="hidden" id="hdnid" name="ID" />
+                            <input type="submit" class="btn btn-success pull-right" id="add" value="Add Patient" />
+                            <input type="submit" class="btn btn-success pull-right hidden" id="hide" value="Edit Patient" />
+                        </div>
+                    </form>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    
+    <!-- Info boxes -->
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Patient</h3>
+            <a data-toggle="modal" data-target="#myModal"  onclick="OpenDialog2()"  data-dismiss="modal" type="button" class="btn btn-primary" style="float: right;">Add Patient</a>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="box-body collapse in" style="overflow-x: scroll;">
+                <table id="fileTable" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="fileTable_info">
+                    <thead>
+                        <tr>
+                            <th>SR NO</th>
+                            <th>Patient Name</th>
+                            <th>Patient Of</th>
+                            <th>Testimonial</th>
+                            <th>Age</th>                       
+                            <th>Create Date</th>
+                            <th>Updated Date</th>
+                            <th>Is Active</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 1;}
+                        @foreach (var item in ViewBag.patient)
+                        {
+
+                            <tr id="row_@item.ID">
+                                <td>
+                                    <span>@i</span>
+                                </td>
+
+                                <td>
+                                    @item.PATIENT_NAME
+                                </td>
+
+                                <td>
+                                    @item.PATIENT_OF
+                                </td>
+                                <td>
+                                    @item.PATIENT_TESTIMONIAL
+                                </td>
+                                <td>
+                                    @item.PATIENT_AGE
+                                </td>
+                              
+
+
+
+                                <td>
+                                    @item.CREATED_DATE.ToShortDateString()<br />
+                                    BY:
+                                    @if (item.login.NAME != null)
+                                    {
+                                        <b>  @item.login.NAME</b>
+                                    }
+                                </td>
+
+                                <td>
+                                    @if (item.UPDATED_DATE != null)
+                                    {
+                                        @item.UPDATED_DATE.ToShortDateString()<br />
+                                    }
+                                    @if (item.UPDATED_BY != null)
+                                    {
+                                        <span> BY:</span>
+
+                                        if (item.login1.NAME != null)
+                                        {
+                                            <b>  @item.login1.NAME</b>
+                                        }
+                                    }
+                                    else
+                                    {
+                                    }
+                                </td>
+
+                                <td>
+
+                                    @if (item.IS_ACTIVE == true)
+                                    {
+                                        <span>Yes</span>
+                                    }
+                                    else
+                                    {
+                                        <span>No</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a onclick="OpenDialog(@item.ID)" style="display:inline" data-toggle="modal" data-target="#myModal" type="button"> <i class="fa fa-edit"></i></a>
+                                    <a style="display:inline" class="hide_me" onclick="Delete(@item.ID,'del')"> &nbsp; <i class="fa fa-trash"></i> </a>
+                                </td>
+
+                            </tr>
+                            i++;
+                        }
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+@*<script>
+    $(document).ready(function () {
+        $('#cleardata').on('hidden', function () {
+            clear() 
+        });
+    });
+
+</script>*@
+<script>
+    function OpenDialog2()
+    {
+        document.getElementById("myForm").reset();
+            var pati = {
+               
+            }
+            $('#hdnid').val(0);
+            $('#add').removeClass('hidden');
+            $('#logoid').addClass('hidden');
+            $('#hide').addClass('hidden');
+
+        }
+    </script>
+<script>
+    function OpenDialog(id) {
+        var pati = {
+            ID : id,
+        }
+        $('#add').addClass('hidden');
+        $('#logoid').addClass('hidden');
+        $('#hide').removeClass('hidden');
+        $.ajax({
+            url: '/Admin/getpatient/' + id,
+            type: 'GET',
+            success: function (data) {
+                $('#hdnid').val(data.data.ID);
+                $('#patient_name').val(data.data.PATIENT_NAME);
+                $('#patient_of').val(data.data.PATIENT_OF);
+                $('#testimonial').val(data.data.PATIENT_TESTIMONIAL);
+                $('#age').val(data.data.PATIENT_AGE);
+
+                var isactive = data.data.IS_ACTIVE;
+                if (isactive == true) {
+                    $('input:radio[name=IS_ACTIVE]')[0].checked = true;
+                }
+                else {
+                    $('input:radio[name=IS_ACTIVE]')[1].checked = true;
+                }
+            }
+        });
+    }
+</script>
+
+<script>
+        function Delete(id,del)
+        {
+            if (confirm("Are you sure Delete this Record?")) {
+                var deletes =
+                   {
+                       ID : id,
+                       patient_del: del,
+                   }
+                {
+                    $.ajax({
+                        url: '/Admin/delete/',
+                        data: JSON.stringify(deletes),
+                        type: 'post',
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            var dt = data.data.ID;
+
+                                $('#row_'+dt).hide();
+
+
+                        }
+                    });
+                    error: {
+
+                    }
+                }
+            }
+            return false;
+        }
+
+</script>
+@*<script>
+    function myFunction() {
+        document.getElementById("myForm").reset();
+       
+    }
+</script>*@

@@ -1,0 +1,383 @@
+﻿@model theraphy.Models.configuration
+@{
+    ViewBag.Title = "configuration";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<section class="content">  
+
+    <!-- Modal -->
+    
+    <!-- Info boxes -->
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Configuration</h3>
+          
+        </div>
+
+        <form method="post" class="container" enctype="multipart/form-data" id="myForm">
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group ">
+                        <label>Email<span class="error"> * </span></label>
+                        <input type="email" name="EMAIL" value="@Model.EMAIL" id="email"  class="form-control" placeholder="Enter Email" required>
+                        <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                    </div>
+                </div>
+                <!-- text input -->
+                <!-- text input -->
+                <div class="col-sm-5">
+                    <div class="form-group ">
+
+                        <label>Contact</label>
+                        <input type="text" class="form-control" value="@Model.CONTACT" id="contact" required onkeypress="phoneno()" maxlength="10" name="CONTACT" placeholder="Enter Contact No">
+                        <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group ">
+                        <label>Clinic Timing</label>
+                        <input type="text" class="form-control" value="@Model.TIMING" required name="TIMING" id="timing" placeholder="Enter Timings">
+                        <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label>Clinic Address</label>
+                        <input type="text" class="form-control" value="@Model.CLINIC_ADDRESS" required name="CLINIC_ADDRESS" id="clinic_address" placeholder="Enter Address" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <div>
+                        <label>Clinic Email</label>
+                        <input type="email" class="form-control" name="CLINIC_EMAIL" value="@Model.CLINIC_EMAIL" id="clinic_email" placeholder="Enter Email" />
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div>
+                        <label>Clinic Contact</label>
+                        <input type="text" class="form-control" value="@Model.CLINIC_CONTACT" onkeypress="phoneno()" maxlength="10" name="CLINIC_CONTACT" id="clinic_contact" placeholder="Enter Clinic Contact No">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group" id="logoid">
+                <label for="exampleInputFile">Logo upload</label>
+                <input type="file" value="@Model.LOGO_IMAGE" name="LOGO_IMAGE" id="Logo">
+                <a><img src="~/images/@Model.LOGO_IMAGE" class="img-responsive"  style="margin-left:200px;margin-top:-33px" /></a>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group ">
+                        <label>Facebook</label>
+                        <input type="text" class="form-control" value="@Model.FACEBOOK" name="FACEBOOK" id="facebook" placeholder="Enter Facebook Link">
+                        <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                    </div>
+                </div>
+
+
+                <div class="col-sm-5">
+                    <div class="form-group ">
+                        <label>Twitter</label>
+                        <input type="text" class="form-control" value="@Model.TWITTER" name="TWITTER" id="twitter" placeholder="Enter Twitter Link">
+                        <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group ">
+                        <label>Google Plus</label>
+                        <input type="text" class="form-control" value="@Model.GOOGLE_PLUS" name="GOOGLE_PLUS" id="google_plus" placeholder="Enter Google Plus Link">
+                        <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group ">
+                        <label>Linked In</label>
+                        <input type="text" class="form-control" name="LINKED_IN" value="@Model.LINKED_IN" id="linked_in" placeholder="Enter Linked In Link">
+                        <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group ">
+                        <label>Youtube</label>
+                        <input type="text" class="form-control" value="@Model.YOUTUBE" name="YOUTUBE" id="youtube" placeholder="Enter Youtube Link">
+                        <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                    </div>
+                </div>
+                @*<div class="col-sm-5">
+                    <div class="form-group">
+                        <label>Is Active</label><br />
+                        <input type="radio" name="IS_ACTIVE" id="radio1" value="true"> Yes
+
+                    </div>
+                </div>*@
+            </div>
+
+            <div class="box-footer" style="margin-right:96px">
+                <input type="hidden" id="hdnid" name="ID" />
+                @*<input type="submit" class="btn btn-success pull-right" id="add" value="Add Configuration Details" />*@
+                <input type="submit" class="btn btn-success pull-right " id="hide" value="Edit Configuration Details" />
+            </div>
+        </form>
+
+
+        <!-- /.box-header -->
+        @*<div class="box-body">
+            <div class="box-body collapse in"  style="overflow-x: scroll;">
+                <table id="fileTable" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="fileTable_info">
+                    <thead>
+                        <tr>
+                            <th>SR NO</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Clinic Timing</th>
+                            <th>Clinic Address</th>
+                            <th>Clinic Emamil</th>
+                            <th>Clinic Contact</th>
+                            <th>Logo Image</th>
+                            <th>Facebook</th>
+                            <th>Twitter</th>
+                            <th>Google Plus</th>
+                            <th>Linked In</th>
+                            <th>Youtube</th>
+                            <th>Is Active</th>
+                            <th>Created Date</th>
+                            <th>Updated date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 1;}
+                        @foreach (var item in ViewBag.configur)
+                        {
+
+                            <tr id="row_@item.ID">
+                                <td>
+                                    <span>@i</span>
+
+                                </td>
+
+                                <td>
+                                    @item.EMAIL
+
+                                </td>
+
+                                <td>
+                                    @item.CONTACT
+                                </td>
+
+                                <td>
+                                    @item.TIMING
+                                </td>
+
+                                <td>
+                                    @item.CLINIC_ADDRESS
+                                </td>
+
+                                <td>
+                                    @item.CLINIC_EMAIL
+                                </td>
+
+                                <td>
+                                    @item.CLINIC_CONTACT
+                                </td>
+
+                                <td>
+                                    <a href="~/images/@item.LOGO_IMAGE" data-lightbox="image-1" data-title="Image Title">
+                                        @item.LOGO_IMAGE
+                                    </a>
+                                </td>
+
+                                <td>
+                                    @item.FACEBOOK
+                                </td>
+
+                                <td>
+                                    @item.TWITTER
+                                </td>
+
+                                <td>
+                                    @item.GOOGLE_PLUS
+                                </td>
+
+                                <td>
+                                    @item.LINKED_IN
+                                </td>
+
+                                <td>
+                                    @item.YOUTUBE
+                                </td>
+
+                                <td>
+                                    @if(item.IS_ACTIVE == true)
+                                    {
+                                        <span>Yes</span>
+                                    }
+                                    else
+                                    {
+                                        <span>No</span>
+                                    }
+                                </td>
+
+                                <td>
+                                    @item.CREATED_DATE
+                                </td>
+
+                                <td>
+                                    @item.UPDATED_DATE
+                               </td>
+
+                            <td>
+                                <a onclick="OpenDialog(@item.ID)" style="display:inline" data-toggle="modal" data-target="#myModal" type="button"> <i class="fa fa-edit"></i></a>
+                              
+                            </td>
+
+                        </tr>
+                            i++;
+                        }
+                    </tbody>
+
+
+                </table>
+            </div>
+    </div>*@
+        </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+
+
+<script>
+
+    function OpenDialog() {
+        var emp =
+                   {
+                     
+                   }
+        $('#add').addClass('hidden');
+        $('#logoid').addClass('hidden');
+        $('#hide').removeClass('hidden');
+            $.ajax({
+                url: '/Admin/getconfiguration/',
+                type: 'POST',
+                //contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+
+                    $('#hdnid').val(data.data.ID);
+                  //  $('#start_day').val(data.data.start_day);
+                    $('#email').val(data.data.EMAIL);
+                    $('#contact').val(data.data.CONTACT);
+                    $('#timing').val(data.data.TIMING);
+                    $('#clinic_address').val(data.data.CLINIC_ADDRESS);
+                    $('#clinic_email').val(data.data.CLINIC_EMAIL);
+                    $('#clinic_contact').val(data.data.CLINIC_CONTACT);
+                    $('#logo_image').val(data.data.LOGO_IMAGE);
+                    $('#facebook').val(data.data.FACEBOOK);
+                    $('#twitter').val(data.data.TWITTER);
+                    $('#google_plus').val(data.data.GOOGLE_PLUS);
+                    $('#linked_in').val(data.data.LINKED_IN);
+                    $('#youtube').val(data.data.YOUTUBE);
+                    var isactive=data.data.IS_ACTIVE;
+                    if (isactive == true) {
+                        $('input:radio[name=IS_ACTIVE]')[0].checked = true;
+                    }
+                    else {
+                        $('input:radio[name=IS_ACTIVE]')[0].checked = false;
+                    }
+                 
+                }
+            });
+        }
+</script>
+@*<script>
+        function Delete(id,del)
+        {
+            if (confirm("Are you sure Delete this Record?")) {
+                var deletes =
+                   {
+                       ID : id,
+                       configuration_del : del,
+                   }
+                {
+                    $.ajax({
+                        url: '/Admin/delete/',
+                        data: JSON.stringify(deletes),
+                        type: 'post',
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            var dt = data.data.ID;
+
+                                $('#row_'+dt).hide();
+
+
+                        }
+                    });
+                    error: {
+
+                    }
+                }
+            }
+            return false;
+        }
+
+</script>*@
+@*<script>
+    function OpenDialog2()
+    {
+        document.getElementById("myForm").reset();
+            var pati = {
+
+            }
+            $('#hdnid').val(0);
+            $('#add').removeClass('hidden');
+            $('#logoid').removeClass('hidden');
+            $('#hide').addClass('hidden');
+
+        }
+</script>*@
+
+<script>
+           function phoneno(){
+               $('#contact,#MOBILE2,#clinic_contact').keypress(function (e) {
+                var a = [];
+                var k = e.which;
+
+                for (i = 48; i < 58; i++)
+                    a.push(i);
+
+                if (!(a.indexOf(k)>=0))
+                    e.preventDefault();
+            });
+           }
+</script>
+
+
+@*<script>
+    $(function () {
+        // when the modal is closed
+        $('#myModal').on('hidden.bs.modal', function () {
+            // remove the bs.modal data attribute from it
+            $(this).removeData('bs.modal');
+            // and empty the modal-content element
+            $('#myModal .modal-content').empty();
+        });
+    });
+</script>*@

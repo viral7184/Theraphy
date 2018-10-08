@@ -1,0 +1,209 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators"></ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner"></div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+
+<div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <div class="mb60 text-center section-title">
+                    <!-- section title start-->
+                    <h5>Physiotherapy Services at Home</h5>
+                    <h1>Wide Range of Physical Therapy Service</h1>
+                    @*<p>@ViewBag.service.DESCRIPTION</p>*@
+                </div>
+                <!-- /.section title start-->
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.service)
+            {
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-block">
+                        <!-- service block -->
+                        <div class="service-img mb20">
+                            <!-- service img -->
+                            <a><img src="~/images/@item.IMAGE" style="width:260px;height:232px" alt="" class="img-responsive"></a>
+                        </div>
+                        <!-- service img -->
+                        <div class="service-content">
+                            <!-- service content -->
+                            <h2><a href="~/Home/servicedetail" class="title">@item.SERVICE_NAME</a></h2>
+                            <p class="myclass2">@item.DESCRIPTION</p>
+                            <a href="~/Home/servicedetail" class="btn btn-default">Read More</a>
+                        </div>
+                        <!-- service content -->
+                    </div>
+                    <!-- /.service block -->
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
+<!-- /.call to action -->
+<div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                <div class="section-title mb60 text-center">
+                    <!-- section title start-->
+                    <h1>Meet Our Physiotherapist</h1>
+                    <p>Pellentesque laoreet sem nisi eget malesuada sem aliquet sit amet ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                </div>
+                <!-- /.section title end-->
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.team)
+            {
+                <div class="col-lg-3 col-sm-3 col-sm-6 col-xs-12">
+                    <div class="team-block">
+                        <!-- team block start-->
+                        <div class="team-img"><img src="~/images/@item.IMAGE" style="width:262px;height:310px"></div>
+                        <div class="team-content">
+                            <h2 class="team-title">@item.NAME</h2>
+                            <div class="team-meta"><span class="team-designation">@item.SPECIALITY</span></div>
+                        </div>
+                    </div>
+                    <!-- team block end -->
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="space-medium bg-default">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                <div class="section-title mb60 text-center">
+                    <!-- section title start-->
+                    <h1>Our Patient’s Review</h1>
+                </div>
+                <!-- /.section title start-->
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.patient)
+            {
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                    <div class="testimonial-block">
+                        testimonial block
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">“@item.PATIENT_TESTIMONIAL”</p>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4 class="testimonial-name">@item.PATIENT_NAME</h4>
+                            <span class="testimonial-meta">@item.PATIENT_AGE</span>
+                        </div>
+                    </div>
+
+                    <!--/. testimonial block -->
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                <div class="section-title mb40 text-center">
+                    <!-- section title start-->
+                    <h1>Latest News &amp; Article</h1>
+                </div>
+                <!-- /.section title start-->
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.news)
+            {
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+                    <div class="post-block">
+                        <!-- post block -->
+                        <div class="post-img">
+                            <a><img src="~/images/@item.IMAGE" style="width:360px;height:240px" alt="" class="img-responsive"></a>
+                        </div>
+                        <div class="post-content">
+                            <h2><a href="~/Home/news" class="title">@item.NEWS1</a></h2>
+                            <p class="meta"> <span class="meta-date"><i class="fa fa-calendar"></i>@item.CREATED_DATE</span>   </p>
+                            <div> <p class="myclass1">@item.NEWS_DESCRIPTION</p></div>
+                            <a href="~/Home/news" class="btn btn-default">Read More</a>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+        <!-- /.post block -->
+    </div>
+</div>
+
+
+<script src="~/js/jquery.min.js"></script>
+
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>*@
+@*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
+
+<script>
+$(function(){
+    $(".myclass2").each(function (i) {
+    len=$(this).text().length;
+    if(len>250)
+    {
+      $(this).text($(this).text().substr(0,250)+'.....');
+    }
+    });
+    $(".myclass1").each(function (i) {
+        len = $(this).text().length;
+        if (len > 50) {
+            $(this).text($(this).text().substr(0, 50) + '.....');
+        }
+    });
+});
+// ]]></script>
+
+
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '/Home/getcarousel/',
+            type: 'GET',
+
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+              // alert(data);
+                for (var i = 0 ; i < data.data.length ; i++) {
+                    $('<div class="item" style="background-size: cover;"><img src="/images/' + data.data[i].IMAGE + '"><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
+                    $('<li data-target="#carousel-example-generic" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
+
+                }
+                $('.item').first().addClass('active');
+                $('.carousel-indicators > li').first().addClass('active');
+                $('#carousel-example-generic').carousel();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewBag.Title = "contact";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<section class="content">
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel"> Contact</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- /.box-header -->
+                    <form method="post" enctype="multipart/form-data">
+
+                        <div class="form-group ">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="NAME" id="name" placeholder="Enter Name">
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+
+                        <div class="form-group ">
+                            <label>Phone</label>
+                            <input type="text" class="form-control" name="PHONE" id="phone" placeholder="Enter Phone">
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+
+                        <div class="form-group ">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="EMAIL" id="email" placeholder="Enter Email">
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+
+                        <div class="form-group ">
+                            <label>Subject</label>
+                            <input type="text" class="form-control" name="SUBJECT" id="subject" placeholder="Enter Subject">
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+
+                        <div class="form-group ">
+                            <label>Message</label>
+                            <input type="text" class="form-control" name="MESSAGE"id="message" placeholder="Enter Message">
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+
+                        <div class="box-footer">
+                            <input type="hidden" id="hdnid" name="ID" />
+                            <input type="submit" class="btn btn-success pull-right" value="Add Patient" />
+                            <input type="submit" class="btn btn-success pull-right hidden" value="Edit Patient" />
+                        </div>
+                    </form>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    
+    <!-- Info boxes -->
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Contact</h3>
+            @*<a data-toggle="modal" data-target="#myModal" type="button" class="btn btn-primary" style="float: right;">Add Contact</a>*@
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="box-body collapse in" style="overflow-x: scroll;">
+                <table id="fileTable" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="fileTable_info">
+                    <thead>
+                        <tr>
+                            <th>SR NO</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Create Date</th>
+                         
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 1;}
+                        @foreach (var item in ViewBag.contact)
+                        {
+
+                            <tr id="row_@item.ID">
+                                <td>
+                                    <span>@i</span>
+                                </td>
+
+                                <td>
+                                    @item.NAME
+                                </td>
+
+                                <td>
+                                    @item.PHONE
+                                </td>
+                                <td>
+                                    @item.EMAIL
+                                </td>
+                                <td>
+                                    @item.SUBJECT
+                                </td>
+
+                                <td>
+                                    @item.MESSAGE
+                                </td>
+
+                                <td>
+                                    @item.CREATED_DATE
+                                </td>
+
+
+                                <td>
+                                    @*<a onclick="OpenDialog(@item.ID)" style="display:inline" data-toggle="modal" data-target="#myModal" type="button"> <i class="fa fa-edit"></i></a>*@
+                                    <a style="display:inline" class="hide_me" onclick="Delete(@item.ID,'del')"> &nbsp; <i class="fa fa-trash"></i> </a>
+                                </td>
+
+                            </tr>
+                            i++;
+                        }
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+
+
+<script>
+    function OpenDialog(id) {
+        var pati = {
+            ID : id,
+        }
+        $.ajax({
+            url: '/Admin/getcontact/' + id,
+            type: 'GET',
+            success: function (data) {
+                $('#hdnid').val(data.data.ID);
+                $('#name').val(data.data.NAME);
+                $('#phone').val(data.data.PHONE);
+                $('#email').val(data.data.EMAIL);
+                $('#subject').val(data.data.SUBJECT);
+                $('#message').val(data.data.MESSAGE);
+
+            }
+        });
+    }
+</script>
+
+<script>
+        function Delete(id,del)
+        {
+            if (confirm("Are you sure Delete this Record?")) {
+                var deletes =
+                   {
+                       ID : id,
+                       contact_del: del,
+                   }
+                {
+                    $.ajax({
+                        url: '/Admin/delete/',
+                        data: JSON.stringify(deletes),
+                        type: 'post',
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            var dt = data.data.ID;
+
+                                $('#row_'+dt).hide();
+
+
+                        }
+                    });
+                    error: {
+
+                    }
+                }
+            }
+            return false;
+        }
+
+</script>

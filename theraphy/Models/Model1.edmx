@@ -1,0 +1,1138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="about_us">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ABOUT_US" Type="nvarchar(max)" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="bit" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="carousel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="bit" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="configuration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="CONTACT" Type="nvarchar(max)" />
+          <Property Name="TIMING" Type="nvarchar(max)" />
+          <Property Name="CLINIC_ADDRESS" Type="nvarchar(max)" />
+          <Property Name="CLINIC_EMAIL" Type="nvarchar(max)" />
+          <Property Name="CLINIC_CONTACT" Type="nvarchar(max)" />
+          <Property Name="LOGO_NAME" Type="nvarchar(max)" />
+          <Property Name="LOGO_IMAGE" Type="nvarchar(max)" />
+          <Property Name="FACEBOOK" Type="nvarchar(max)" />
+          <Property Name="TWITTER" Type="nvarchar(max)" />
+          <Property Name="GOOGLE_PLUS" Type="nvarchar(max)" />
+          <Property Name="LINKED_IN" Type="nvarchar(max)" />
+          <Property Name="YOUTUBE" Type="nvarchar(max)" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="bit" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="CONTACT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="PHONE" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="SUBJECT" Type="nvarchar" MaxLength="50" />
+          <Property Name="MESSAGE" Type="nvarchar(max)" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="bit" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="LAST_LOGIN" Type="datetime" />
+          <Property Name="IS_DELETED" Type="bit" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
+          <Property Name="NEWS" Type="nvarchar" MaxLength="50" />
+          <Property Name="NEWS-DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="bit" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="our_team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="DEGREE" Type="nvarchar" MaxLength="50" />
+          <Property Name="EXPERIENCE" Type="int" />
+          <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
+          <Property Name="SPECIALITY" Type="nvarchar(max)" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="bit" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="patient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PATIENT_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="PATIENT_OF" Type="nvarchar" MaxLength="50" />
+          <Property Name="PATIENT_TESTIMONIAL" Type="nvarchar(max)" />
+          <Property Name="PATIENT AGE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="bit" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SERVICE_TYPE" Type="nvarchar" MaxLength="50" />
+          <Property Name="SERVICE_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="bit" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+        </EntityType>
+        <Association Name="FK_about_us_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="about_us" Type="Self.about_us" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="about_us">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_about_us_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="about_us" Type="Self.about_us" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="about_us">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_carousel_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="carousel" Type="Self.carousel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="carousel">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_carousel_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="carousel" Type="Self.carousel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="carousel">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_configuration_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="configuration" Type="Self.configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="configuration">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_configuration_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="configuration" Type="Self.configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="configuration">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTACT_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="CONTACT" Type="Self.CONTACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CONTACT">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTACT_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="CONTACT" Type="Self.CONTACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CONTACT">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_login_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="login1" Type="Self.login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="login1">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_login_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="login1" Type="Self.login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="login1">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_news_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="news" Type="Self.news" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="news">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_news_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="news" Type="Self.news" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="news">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_our_team_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="our_team" Type="Self.our_team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="our_team">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_our_team_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="our_team" Type="Self.our_team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="our_team">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_patient_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="patient" Type="Self.patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="patient">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_patient_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="patient" Type="Self.patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="patient">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_service_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="service" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_service_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="service" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="about_us" EntityType="Self.about_us" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="carousel" EntityType="Self.carousel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="configuration" EntityType="Self.configuration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONTACT" EntityType="Self.CONTACT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="news" EntityType="Self.news" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="our_team" EntityType="Self.our_team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_about_us_ToTable" Association="Self.FK_about_us_ToTable">
+            <End Role="login" EntitySet="login" />
+            <End Role="about_us" EntitySet="about_us" />
+          </AssociationSet>
+          <AssociationSet Name="FK_about_us_ToTable_1" Association="Self.FK_about_us_ToTable_1">
+            <End Role="login" EntitySet="login" />
+            <End Role="about_us" EntitySet="about_us" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carousel_ToTable" Association="Self.FK_carousel_ToTable">
+            <End Role="login" EntitySet="login" />
+            <End Role="carousel" EntitySet="carousel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carousel_ToTable_1" Association="Self.FK_carousel_ToTable_1">
+            <End Role="login" EntitySet="login" />
+            <End Role="carousel" EntitySet="carousel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_configuration_ToTable" Association="Self.FK_configuration_ToTable">
+            <End Role="login" EntitySet="login" />
+            <End Role="configuration" EntitySet="configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_configuration_ToTable_1" Association="Self.FK_configuration_ToTable_1">
+            <End Role="login" EntitySet="login" />
+            <End Role="configuration" EntitySet="configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTACT_ToTable" Association="Self.FK_CONTACT_ToTable">
+            <End Role="login" EntitySet="login" />
+            <End Role="CONTACT" EntitySet="CONTACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTACT_ToTable_1" Association="Self.FK_CONTACT_ToTable_1">
+            <End Role="login" EntitySet="login" />
+            <End Role="CONTACT" EntitySet="CONTACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_login_ToTable" Association="Self.FK_login_ToTable">
+            <End Role="login" EntitySet="login" />
+            <End Role="login1" EntitySet="login" />
+          </AssociationSet>
+          <AssociationSet Name="FK_login_ToTable_1" Association="Self.FK_login_ToTable_1">
+            <End Role="login" EntitySet="login" />
+            <End Role="login1" EntitySet="login" />
+          </AssociationSet>
+          <AssociationSet Name="FK_news_ToTable" Association="Self.FK_news_ToTable">
+            <End Role="login" EntitySet="login" />
+            <End Role="news" EntitySet="news" />
+          </AssociationSet>
+          <AssociationSet Name="FK_news_ToTable_1" Association="Self.FK_news_ToTable_1">
+            <End Role="login" EntitySet="login" />
+            <End Role="news" EntitySet="news" />
+          </AssociationSet>
+          <AssociationSet Name="FK_our_team_ToTable" Association="Self.FK_our_team_ToTable">
+            <End Role="login" EntitySet="login" />
+            <End Role="our_team" EntitySet="our_team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_our_team_ToTable_1" Association="Self.FK_our_team_ToTable_1">
+            <End Role="login" EntitySet="login" />
+            <End Role="our_team" EntitySet="our_team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_patient_ToTable" Association="Self.FK_patient_ToTable">
+            <End Role="login" EntitySet="login" />
+            <End Role="patient" EntitySet="patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_patient_ToTable_1" Association="Self.FK_patient_ToTable_1">
+            <End Role="login" EntitySet="login" />
+            <End Role="patient" EntitySet="patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_service_ToTable" Association="Self.FK_service_ToTable">
+            <End Role="login" EntitySet="login" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_service_ToTable_1" Association="Self.FK_service_ToTable_1">
+            <End Role="login" EntitySet="login" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="about_us">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ABOUT_US1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Boolean" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <NavigationProperty Name="login" Relationship="Self.FK_about_us_ToTable" FromRole="about_us" ToRole="login" />
+          <NavigationProperty Name="login1" Relationship="Self.FK_about_us_ToTable_1" FromRole="about_us" ToRole="login" />
+        </EntityType>
+        <EntityType Name="carousel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Boolean" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <NavigationProperty Name="login" Relationship="Self.FK_carousel_ToTable" FromRole="carousel" ToRole="login" />
+          <NavigationProperty Name="login1" Relationship="Self.FK_carousel_ToTable_1" FromRole="carousel" ToRole="login" />
+        </EntityType>
+        <EntityType Name="configuration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONTACT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TIMING" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CLINIC_ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CLINIC_EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CLINIC_CONTACT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LOGO_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LOGO_IMAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FACEBOOK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TWITTER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GOOGLE_PLUS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LINKED_IN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="YOUTUBE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Boolean" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <NavigationProperty Name="login" Relationship="Self.FK_configuration_ToTable" FromRole="configuration" ToRole="login" />
+          <NavigationProperty Name="login1" Relationship="Self.FK_configuration_ToTable_1" FromRole="configuration" ToRole="login" />
+        </EntityType>
+        <EntityType Name="CONTACT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SUBJECT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Boolean" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <NavigationProperty Name="login" Relationship="Self.FK_CONTACT_ToTable" FromRole="CONTACT" ToRole="login" />
+          <NavigationProperty Name="login1" Relationship="Self.FK_CONTACT_ToTable_1" FromRole="CONTACT" ToRole="login" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="LAST_LOGIN" Type="DateTime" Precision="3" />
+          <Property Name="IS_DELETED" Type="Boolean" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <NavigationProperty Name="about_us" Relationship="Self.FK_about_us_ToTable" FromRole="login" ToRole="about_us" />
+          <NavigationProperty Name="about_us1" Relationship="Self.FK_about_us_ToTable_1" FromRole="login" ToRole="about_us" />
+          <NavigationProperty Name="carousels" Relationship="Self.FK_carousel_ToTable" FromRole="login" ToRole="carousel" />
+          <NavigationProperty Name="carousels1" Relationship="Self.FK_carousel_ToTable_1" FromRole="login" ToRole="carousel" />
+          <NavigationProperty Name="configurations" Relationship="Self.FK_configuration_ToTable" FromRole="login" ToRole="configuration" />
+          <NavigationProperty Name="configurations1" Relationship="Self.FK_configuration_ToTable_1" FromRole="login" ToRole="configuration" />
+          <NavigationProperty Name="CONTACTs" Relationship="Self.FK_CONTACT_ToTable" FromRole="login" ToRole="CONTACT" />
+          <NavigationProperty Name="CONTACTs1" Relationship="Self.FK_CONTACT_ToTable_1" FromRole="login" ToRole="CONTACT" />
+          <NavigationProperty Name="login1" Relationship="Self.FK_login_ToTable" FromRole="login" ToRole="login1" />
+          <NavigationProperty Name="login2" Relationship="Self.FK_login_ToTable" FromRole="login1" ToRole="login" />
+          <NavigationProperty Name="login11" Relationship="Self.FK_login_ToTable_1" FromRole="login" ToRole="login1" />
+          <NavigationProperty Name="login3" Relationship="Self.FK_login_ToTable_1" FromRole="login1" ToRole="login" />
+          <NavigationProperty Name="news" Relationship="Self.FK_news_ToTable" FromRole="login" ToRole="news" />
+          <NavigationProperty Name="news1" Relationship="Self.FK_news_ToTable_1" FromRole="login" ToRole="news" />
+          <NavigationProperty Name="our_team" Relationship="Self.FK_our_team_ToTable" FromRole="login" ToRole="our_team" />
+          <NavigationProperty Name="our_team1" Relationship="Self.FK_our_team_ToTable_1" FromRole="login" ToRole="our_team" />
+          <NavigationProperty Name="patients" Relationship="Self.FK_patient_ToTable" FromRole="login" ToRole="patient" />
+          <NavigationProperty Name="patients1" Relationship="Self.FK_patient_ToTable_1" FromRole="login" ToRole="patient" />
+          <NavigationProperty Name="services" Relationship="Self.FK_service_ToTable" FromRole="login" ToRole="service" />
+          <NavigationProperty Name="services1" Relationship="Self.FK_service_ToTable_1" FromRole="login" ToRole="service" />
+        </EntityType>
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NEWS1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NEWS_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Boolean" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <NavigationProperty Name="login" Relationship="Self.FK_news_ToTable" FromRole="news" ToRole="login" />
+          <NavigationProperty Name="login1" Relationship="Self.FK_news_ToTable_1" FromRole="news" ToRole="login" />
+        </EntityType>
+        <EntityType Name="our_team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DEGREE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EXPERIENCE" Type="Int32" />
+          <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SPECIALITY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Boolean" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <NavigationProperty Name="login" Relationship="Self.FK_our_team_ToTable" FromRole="our_team" ToRole="login" />
+          <NavigationProperty Name="login1" Relationship="Self.FK_our_team_ToTable_1" FromRole="our_team" ToRole="login" />
+        </EntityType>
+        <EntityType Name="patient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PATIENT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PATIENT_OF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PATIENT_TESTIMONIAL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PATIENT_AGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Boolean" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <NavigationProperty Name="login" Relationship="Self.FK_patient_ToTable" FromRole="patient" ToRole="login" />
+          <NavigationProperty Name="login1" Relationship="Self.FK_patient_ToTable_1" FromRole="patient" ToRole="login" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SERVICE_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SERVICE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Boolean" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <NavigationProperty Name="login" Relationship="Self.FK_service_ToTable" FromRole="service" ToRole="login" />
+          <NavigationProperty Name="login1" Relationship="Self.FK_service_ToTable_1" FromRole="service" ToRole="login" />
+        </EntityType>
+        <Association Name="FK_about_us_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="about_us" Type="Self.about_us" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="about_us">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_about_us_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="about_us" Type="Self.about_us" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="about_us">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_carousel_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="carousel" Type="Self.carousel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="carousel">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_carousel_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="carousel" Type="Self.carousel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="carousel">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_configuration_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="configuration" Type="Self.configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="configuration">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_configuration_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="configuration" Type="Self.configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="configuration">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTACT_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="CONTACT" Type="Self.CONTACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CONTACT">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTACT_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="CONTACT" Type="Self.CONTACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CONTACT">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_login_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="login1" Type="Self.login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="login1">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_login_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="login1" Type="Self.login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="login1">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_news_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="news" Type="Self.news" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="news">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_news_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="news" Type="Self.news" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="news">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_our_team_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="our_team" Type="Self.our_team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="our_team">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_our_team_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="our_team" Type="Self.our_team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="our_team">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_patient_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="patient" Type="Self.patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="patient">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_patient_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="patient" Type="Self.patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="patient">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_service_ToTable">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="service" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="CREATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_service_ToTable_1">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="service" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="UPDATED_BY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1Entities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="about_us" EntityType="Self.about_us" />
+          <EntitySet Name="carousels" EntityType="Self.carousel" />
+          <EntitySet Name="configurations" EntityType="Self.configuration" />
+          <EntitySet Name="CONTACTs" EntityType="Self.CONTACT" />
+          <EntitySet Name="logins" EntityType="Self.login" />
+          <EntitySet Name="news" EntityType="Self.news" />
+          <EntitySet Name="our_team" EntityType="Self.our_team" />
+          <EntitySet Name="patients" EntityType="Self.patient" />
+          <EntitySet Name="services" EntityType="Self.service" />
+          <AssociationSet Name="FK_about_us_ToTable" Association="Self.FK_about_us_ToTable">
+            <End Role="login" EntitySet="logins" />
+            <End Role="about_us" EntitySet="about_us" />
+          </AssociationSet>
+          <AssociationSet Name="FK_about_us_ToTable_1" Association="Self.FK_about_us_ToTable_1">
+            <End Role="login" EntitySet="logins" />
+            <End Role="about_us" EntitySet="about_us" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carousel_ToTable" Association="Self.FK_carousel_ToTable">
+            <End Role="login" EntitySet="logins" />
+            <End Role="carousel" EntitySet="carousels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carousel_ToTable_1" Association="Self.FK_carousel_ToTable_1">
+            <End Role="login" EntitySet="logins" />
+            <End Role="carousel" EntitySet="carousels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_configuration_ToTable" Association="Self.FK_configuration_ToTable">
+            <End Role="login" EntitySet="logins" />
+            <End Role="configuration" EntitySet="configurations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_configuration_ToTable_1" Association="Self.FK_configuration_ToTable_1">
+            <End Role="login" EntitySet="logins" />
+            <End Role="configuration" EntitySet="configurations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTACT_ToTable" Association="Self.FK_CONTACT_ToTable">
+            <End Role="login" EntitySet="logins" />
+            <End Role="CONTACT" EntitySet="CONTACTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTACT_ToTable_1" Association="Self.FK_CONTACT_ToTable_1">
+            <End Role="login" EntitySet="logins" />
+            <End Role="CONTACT" EntitySet="CONTACTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_login_ToTable" Association="Self.FK_login_ToTable">
+            <End Role="login" EntitySet="logins" />
+            <End Role="login1" EntitySet="logins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_login_ToTable_1" Association="Self.FK_login_ToTable_1">
+            <End Role="login" EntitySet="logins" />
+            <End Role="login1" EntitySet="logins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_news_ToTable" Association="Self.FK_news_ToTable">
+            <End Role="login" EntitySet="logins" />
+            <End Role="news" EntitySet="news" />
+          </AssociationSet>
+          <AssociationSet Name="FK_news_ToTable_1" Association="Self.FK_news_ToTable_1">
+            <End Role="login" EntitySet="logins" />
+            <End Role="news" EntitySet="news" />
+          </AssociationSet>
+          <AssociationSet Name="FK_our_team_ToTable" Association="Self.FK_our_team_ToTable">
+            <End Role="login" EntitySet="logins" />
+            <End Role="our_team" EntitySet="our_team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_our_team_ToTable_1" Association="Self.FK_our_team_ToTable_1">
+            <End Role="login" EntitySet="logins" />
+            <End Role="our_team" EntitySet="our_team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_patient_ToTable" Association="Self.FK_patient_ToTable">
+            <End Role="login" EntitySet="logins" />
+            <End Role="patient" EntitySet="patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_patient_ToTable_1" Association="Self.FK_patient_ToTable_1">
+            <End Role="login" EntitySet="logins" />
+            <End Role="patient" EntitySet="patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_service_ToTable" Association="Self.FK_service_ToTable">
+            <End Role="login" EntitySet="logins" />
+            <End Role="service" EntitySet="services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_service_ToTable_1" Association="Self.FK_service_ToTable_1">
+            <End Role="login" EntitySet="logins" />
+            <End Role="service" EntitySet="services" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities3">
+          <EntitySetMapping Name="about_us">
+            <EntityTypeMapping TypeName="Database1Model.about_us">
+              <MappingFragment StoreEntitySet="about_us">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ABOUT_US1" ColumnName="ABOUT_US" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="carousels">
+            <EntityTypeMapping TypeName="Database1Model.carousel">
+              <MappingFragment StoreEntitySet="carousel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="configurations">
+            <EntityTypeMapping TypeName="Database1Model.configuration">
+              <MappingFragment StoreEntitySet="configuration">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="CONTACT" ColumnName="CONTACT" />
+                <ScalarProperty Name="TIMING" ColumnName="TIMING" />
+                <ScalarProperty Name="CLINIC_ADDRESS" ColumnName="CLINIC_ADDRESS" />
+                <ScalarProperty Name="CLINIC_EMAIL" ColumnName="CLINIC_EMAIL" />
+                <ScalarProperty Name="CLINIC_CONTACT" ColumnName="CLINIC_CONTACT" />
+                <ScalarProperty Name="LOGO_NAME" ColumnName="LOGO_NAME" />
+                <ScalarProperty Name="LOGO_IMAGE" ColumnName="LOGO_IMAGE" />
+                <ScalarProperty Name="FACEBOOK" ColumnName="FACEBOOK" />
+                <ScalarProperty Name="TWITTER" ColumnName="TWITTER" />
+                <ScalarProperty Name="GOOGLE_PLUS" ColumnName="GOOGLE_PLUS" />
+                <ScalarProperty Name="LINKED_IN" ColumnName="LINKED_IN" />
+                <ScalarProperty Name="YOUTUBE" ColumnName="YOUTUBE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTACTs">
+            <EntityTypeMapping TypeName="Database1Model.CONTACT">
+              <MappingFragment StoreEntitySet="CONTACT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="SUBJECT" ColumnName="SUBJECT" />
+                <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="Database1Model.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="LAST_LOGIN" ColumnName="LAST_LOGIN" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="news">
+            <EntityTypeMapping TypeName="Database1Model.news">
+              <MappingFragment StoreEntitySet="news">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="NEWS1" ColumnName="NEWS" />
+                <ScalarProperty Name="NEWS_DESCRIPTION" ColumnName="NEWS-DESCRIPTION" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="our_team">
+            <EntityTypeMapping TypeName="Database1Model.our_team">
+              <MappingFragment StoreEntitySet="our_team">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DEGREE" ColumnName="DEGREE" />
+                <ScalarProperty Name="EXPERIENCE" ColumnName="EXPERIENCE" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="SPECIALITY" ColumnName="SPECIALITY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="patients">
+            <EntityTypeMapping TypeName="Database1Model.patient">
+              <MappingFragment StoreEntitySet="patient">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PATIENT_NAME" ColumnName="PATIENT_NAME" />
+                <ScalarProperty Name="PATIENT_OF" ColumnName="PATIENT_OF" />
+                <ScalarProperty Name="PATIENT_TESTIMONIAL" ColumnName="PATIENT_TESTIMONIAL" />
+                <ScalarProperty Name="PATIENT_AGE" ColumnName="PATIENT AGE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="services">
+            <EntityTypeMapping TypeName="Database1Model.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SERVICE_TYPE" ColumnName="SERVICE_TYPE" />
+                <ScalarProperty Name="SERVICE_NAME" ColumnName="SERVICE_NAME" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

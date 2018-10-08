@@ -1,0 +1,55 @@
+﻿@model theraphy.Models.about_us
+
+@{
+    ViewBag.Title = "about";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<body onload="myFunction()">
+    <section class="content">
+        <!-- Info boxes -->
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">About-us</h3>
+            </div>
+            <!-- /.box-header -->
+
+            <form method="post" enctype="multipart/form-data" id="myForm">
+                @*<div class="form-group">
+                    <label>About-us</label>
+                    <input type="text" value="@Model.ABOUT_US1" class="form-control" id="about_us" name="ABOUT_US1" placeholder="Enter About">                 
+                </div>*@
+
+                <div>
+                    <textarea id="editor1"  class="editors" rows="10"  cols="80" name="DESCRIPTION"></textarea>
+                   
+                </div>
+
+                <div class="box-footer">
+                   <input type="hidden" id="hdnid" name="ID" value="@Model.ID"/>
+                    <input type="submit" class="btn btn-success pull-right" id="hide" value="Edit About" />
+                </div>
+            </form>
+
+        </div>
+        <!-- /.row -->
+    </section>
+</body>
+<script src="~/ckeditor/ckeditor.js"></script>
+<script>CKEDITOR.replace('editor1');</script>
+
+
+<script>
+    function myFunction() {              
+        
+        $.ajax({
+            url: '/Admin/getabout/',
+            type: 'GET',
+            success: function (data) {               
+                CKEDITOR.instances.editor1.setData(data.data.DESCRIPTION);
+               
+            }
+        });
+    }
+
+</script>

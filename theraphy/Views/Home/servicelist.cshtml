@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "servicelist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-caption">
+                    <h2 class="page-title">service list</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <div class="mb60 text-center section-title">
+                    <!-- section title start-->
+                    <h5>Physiotherapy Services at Home</h5>
+                    <h1>Wide Range of Physical Therapy Service</h1>
+                    @*<p>@ViewBag.service.DESCRIPTION</p>*@
+                </div>
+                <!-- /.section title start-->
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.service)
+            {
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-block">
+                        <!-- service block -->
+                        <div class="service-img mb20">
+                            <!-- service img -->
+                            <a href="#"><img src="~/images/@item.IMAGE" style="width:260px;height:232px" alt="" class="img-responsive"></a>
+                        </div>
+                        <!-- service img -->
+                        <div class="service-content">
+                            <!-- service content -->
+                            <h2><a href="~/Home/servicedetail" class="title">@item.SERVICE_NAME</a></h2>
+                            @*<p>@item.DESCRIPTION</p>*@
+                        </div>
+                        <!-- service content -->
+                    </div>
+                    <!-- /.service block -->
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>

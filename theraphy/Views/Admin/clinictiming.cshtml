@@ -1,0 +1,343 @@
+﻿
+@{
+    ViewBag.Title = "clinictiming";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+    <section class="content">
+   
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add Timing</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- /.box-header -->
+                    <form role="form" method="post" enctype="multipart/form-data">
+                        <!-- text input -->
+                       
+                        <!-- text input -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <label>Start Day</label>
+                                    <select name="START_DAY" class="form-control select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+                                        <option value="Mon" selected="selected">Mon</option>
+                                        <option value="Tues">Tues</option>
+                                        <option value="Wed">Wed</option>
+                                        <option value="Thus">Thus</option>
+                                        <option value="Fri">Fri</option>
+                                        <option value="Sat" >Sat</option>
+                                        <option value="Sun">Sun</option>
+                                    </select>
+                                    <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                                </div>
+                            </div>
+                            <!-- text input -->
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <label>End Day</label>
+                                    <select name="END_DAY" class="form-control select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+                                       
+                                        <option value="Mon">Mon</option>
+                                        <option value="Tues">Tues</option>
+                                        <option value="Wed">Wed</option>
+                                        <option value="Thus">Thus</option>
+                                        <option value="Fri">Fri</option>
+                                        <option value="Sat" selected="selected">Sat</option>
+                                        <option value="Sun">Sun</option>
+                                    </select>
+                                    <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- text input -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <label>Start Time</label>
+                                    <input type="time"  name="START_TIME" class="form-control" 
+                                    <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                                </div>
+                            </div>
+                            <!-- text input -->
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <label>Closing Time</label>
+                                    <input type="time" name="CLOSING_TIME" class="form-control">
+                                    <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- text input -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <label>Closed Day<span class="error"> </span></label>
+                                    <select name="CLOSED_DAY" class="form-control select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+                                        <option value="Mon">Mon</option>
+                                        <option value="Tues">Tues</option>
+                                        <option value="Wed">Wed</option>
+                                        <option value="Thus">Thus</option>
+                                        <option value="Fri">Fri</option>
+                                        <option value="Sat">Sat</option>
+                                        <option value="Sun"  selected="selected">Sun</option>
+                                    </select>
+                                    <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                                </div>
+                            </div>                          
+                        </div>
+                      
+                      
+                        <div class="box-footer">
+                            <input type="submit" class="btn btn-success pull-right" value="Add Timing" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Timing</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- /.box-header -->
+                    <form role="form" method="post" enctype="multipart/form-data">
+                        <!-- text input -->
+                        <!-- text input -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <label>Start Day</label>
+                                    <select name="START_DAY" id="start_day1" class="form-control select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+                                        <option value="Mon" selected="selected">Mon</option>
+                                        <option value="Tues">Tues</option>
+                                        <option value="Wed">Wed</option>
+                                        <option value="Thus">Thus</option>
+                                        <option value="Fri">Fri</option>
+                                        <option value="Sat">Sat</option>
+                                        <option value="Sun">Sun</option>
+                                    </select>
+                                    <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                                </div>
+                            </div>
+                            <!-- text input -->
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <label>End Day</label>
+                                    <select name="END_DAY" id="end_day1" class="form-control select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+
+                                        <option value="Mon">Mon</option>
+                                        <option value="Tues">Tues</option>
+                                        <option value="Wed">Wed</option>
+                                        <option value="Thus">Thus</option>
+                                        <option value="Fri">Fri</option>
+                                        <option value="Sat" selected="selected">Sat</option>
+                                        <option value="Sun">Sun</option>
+                                    </select>
+                                    <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- text input -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <label>Start Time</label>
+                                    <input type="time"  name="START_TIME" id="start_time" class="form-control">
+                                    <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                                </div>
+                            </div>
+                            <!-- text input -->
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <label>End Time</label>
+                                    <input type="time" name="CLOSING_TIME" id="closing_time"  class="form-control" >
+                                    <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- text input -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <label>Closed Day<span class="error"> </span></label>
+                                    <select name="CLOSED_DAY" id="closed_day" class="form-control select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+                                        <option value="Mon">Mon</option>
+                                        <option value="Tues">Tues</option>
+                                        <option value="Wed">Wed</option>
+                                        <option value="Thus">Thus</option>
+                                        <option value="Fri">Fri</option>
+                                        <option value="Sat">Sat</option>
+                                        <option value="Sun" selected="selected">Sun</option>
+                                    </select>
+                                    <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="box-footer">
+                            <input type="submit" class="btn btn-success pull-right" value="Edit Timing" />
+                        </div>
+                    </form>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Clinic-timing</h3>
+            <a data-toggle="modal" data-target="#myModal" type="button" class="btn btn-primary" style="float: right;">Add Timing</a>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="fileTable" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="fileTable_info">
+                <thead>
+                    <tr>
+                        <th>SR_No</th>
+                        <th>Start Day</th>
+                        <th>End Day</th>
+                        <th>Start Time</th>
+                        <th>Closing Time</th>
+                        <th>Closed Day</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int i = 1;}
+                    @foreach (var item in ViewBag.timings)
+                    {
+
+                        <tr id="row_@item.ID">
+                            <td>
+                                <span>@i</span>
+
+                            </td>
+
+                            <td>
+                                  @item.START_DAY
+
+                            </td>
+
+                            <td>
+                                @item.END_DAY
+                            </td>
+
+                            <td>
+                                @item.START_TIME
+                            </td>
+
+                            <td>
+                                @item.CLOSING_TIME
+                            </td>
+
+                            <td>
+                                @item.CLOSED_DAY
+                            </td>
+
+                            <td>
+                                <a onclick="OpenDialog(@item.ID)" style="display:inline" data-toggle="modal" data-target="#myModal1" type="button"> <i class="fa fa-edit"></i></a>
+                                <a style="display:inline" class="hide_me" onclick="Delete(@item.ID,'del')"> &nbsp; <i class="fa fa-trash"></i> </a>
+                            </td>
+
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+
+
+<script>
+
+    function OpenDialog(id) {
+        var emp =
+                   {
+                       ID : id,
+                   }
+            $.ajax({
+                url: '/Admin/getclinictiming/' + id,
+                type: 'GET',
+                //contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+
+                    $('#ID').val(data.data.ID);
+                  //  $('#start_day').val(data.data.start_day);
+                    $('#end_day').val(data.data.end_day);
+                    $('#start_time').val(data.data.start_time);
+                    $('#closing_time').val(data.data.closing_time);
+                    $('#closed_day').val(data.data.closed_day);
+
+                    var start= data.data.start_day.split('-');
+                    $('#start_day1 option[value=' + start[0] + ']').attr("selected", "selected");
+                    $('#start_day').val(start[1]);
+
+                    var end= data.data.end_day.split('-');
+                    $('#end_day1 option[value=' + end[0] + ']').attr("selected", "selected");
+                    $('#end_day').val(end[1]);
+                
+                    var proof= data.data.ID_PROOF.split('-');
+                    $('#PROOF option[value=' + proof[0] + ']').attr("selected", "selected");
+                    $('#ID_PROOF').val(proof[1]);
+                }
+            });
+        }
+</script>
+<script>
+        function Delete(id,del)
+        {
+            if (confirm("Are you sure Delete this Record?")) {
+                var deletes =
+                   {
+                       ID : id,
+                       clinictiming_del : del,
+                   }
+                {
+                    $.ajax({
+                        url: '/Admin/delete/',
+                        data: JSON.stringify(deletes),
+                        type: 'post',
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            var dt = data.data.ID;
+                           
+                                $('#row_'+dt).hide();
+                           
+                           
+                        }
+                    });
+                    error: {
+
+                    }
+                }
+            }
+            return false;
+        }
+
+</script>
+
+
+   
+

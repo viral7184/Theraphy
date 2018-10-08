@@ -1,0 +1,266 @@
+﻿
+@{
+    ViewBag.Title = "service";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<section class="content">
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Service</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- /.box-header -->
+                    <form method="post" enctype="multipart/form-data" id="myForm">
+
+                      
+
+                        <div class="form-group" id="type">
+                            <label>Service Type<span class="error"> </span></label>
+                            <select name="SERVICE_TYPE" id="closed_day" class="form-control select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+                                                              
+                                <option value="Home" selected="selected">Home</option>
+                                <option value="Clinic">Clinic</option>
+                            </select>
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+
+                        <div class="form-group ">
+                            <label>Service Name</label>
+                            <input type="text" class="form-control" name="SERVICE_NAME" id="service_name" placeholder="Enter Service Name">
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+
+                        <div class="form-group" >
+                            <label for="exampleInputFile">Image upload</label>
+                            <input type="file" name="IMAGE">
+                        </div>
+
+                        <div class="form-group ">
+                            <label>Description</label>
+                            <textarea class="form-control" name="DESCRIPTION" id="service_description" placeholder="Enter Description"></textarea>
+                            <!-- <span class="help-block error">* User Name Already Exist</span> -->
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label>Is Active</label><br />
+                                <input type="radio" name="IS_ACTIVE" id="radio1" value="true" checked> Yes
+                                <input type="radio" name="IS_ACTIVE" id="radio2" value="false"> No
+                            </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <input type="hidden" id="hdnid" name="ID" />
+                            <input type="submit" class="btn btn-success pull-right" id="add" value="Add Service" />
+                            <input type="submit" class="btn btn-success pull-right hidden" id="hide" value="Edit Service" />
+                        </div>
+                    </form>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ 
+    <!-- Info boxes -->
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Service</h3>
+            <a data-toggle="modal" data-target="#myModal" onclick="OpenDialog2()" type="button" class="btn btn-primary" style="float: right;">Add Service</a>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="box-body collapse in" style="overflow-x: scroll;">
+                <table id="fileTable" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="fileTable_info">
+                    <thead>
+                        <tr>
+                            <th>SR NO</th>
+                            <th>Service Type</th>
+                            <th>Service Name</th>
+                            <th>Image</th>
+                            <th>Description</th>
+                            <th>Create Date</th>
+                            <th>Updated Date</th>
+                            <th>Is Active</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 1;}
+                        @foreach (var item in ViewBag.service)
+                        {
+
+                            <tr id="row_@item.ID">
+                                <td>
+                                    <span>@i</span>
+                                </td>
+
+                                <td>
+                                    @item.SERVICE_TYPE
+                                </td>
+
+                                <td>
+                                    @item.SERVICE_NAME
+                                </td>
+                                <td>
+                                    <a href="~/images/@item.IMAGE" data-lightbox="image-1" data-title="Image Title">
+                                        @item.IMAGE
+                                    </a>
+                                </td>
+
+                                <td>
+                                    @item.DESCRIPTION
+                                </td>
+
+
+
+
+                                <td>
+                                    @item.CREATED_DATE.ToShortDateString()<br />
+                                    BY:
+                                    @if (item.login.NAME != null)
+                                    {
+                                        <b>  @item.login.NAME</b>
+                                    }
+                                </td>
+
+                                <td>
+                                    @if (item.UPDATED_DATE != null)
+                                    {
+                                        @item.UPDATED_DATE.ToShortDateString()<br />
+                                    }
+                                    @if (item.UPDATED_BY != null)
+                                    {
+                                        <span> BY:</span>
+
+                                        if (item.login1.NAME != null)
+                                        {
+                                            <b>  @item.login1.NAME</b>
+                                        }
+                                    }
+                                    else
+                                    {
+                                    }
+                                </td>
+
+                                <td>
+
+                                    @if (item.IS_ACTIVE == true)
+                                    {
+                                        <span>Yes</span>
+                                    }
+                                    else
+                                    {
+                                        <span>No</span>
+                                    }
+                                </td>
+
+                                <td>
+                                    <a onclick="OpenDialog(@item.ID)" style="display:inline" data-toggle="modal" data-target="#myModal" type="button"> <i class="fa fa-edit"></i></a>
+                                    <a style="display:inline" class="hide_me" onclick="Delete(@item.ID,'del')"> &nbsp; <i class="fa fa-trash"></i> </a>
+                                </td>
+
+                            </tr>
+                            i++;
+                        }
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+
+<script>
+    function OpenDialog2()
+    {
+        document.getElementById("myForm").reset();
+            var pati = {
+
+            }
+            $('#hdnid').val(0);
+            $('#add').removeClass('hidden');
+            $('#type').removeClass('hidden');
+            $('#logoid').removeClass('hidden');
+            $('#hide').addClass('hidden');
+
+        }
+</script>
+
+<script>
+
+    function OpenDialog(id) {
+        var emp =
+                   {
+                       ID : id,
+                   }
+        $('#add').addClass('hidden');
+        $('#type').addClass('hidden');
+        $('#logoid').addClass('hidden');
+        $('#hide').removeClass('hidden');
+            $.ajax({
+                url: '/Admin/getservice/' + id,
+                type: 'GET',
+                //contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+
+                    $('#hdnid').val(data.data.ID);
+                   $('#service_name').val(data.data.SERVICE_NAME);
+                   $('#service_description').val(data.data.DESCRIPTION);
+
+                   var isactive = data.data.IS_ACTIVE;
+                   if (isactive == true) {
+                       $('input:radio[name=IS_ACTIVE]')[0].checked = true;
+                   }
+                   else {
+                       $('input:radio[name=IS_ACTIVE]')[1].checked = true;
+                   }    
+
+                }
+            });
+        }
+</script>
+<script>
+        function Delete(id,del)
+        {
+            if (confirm("Are you sure Delete this Record?")) {
+                var deletes =
+                   {
+                       ID : id,
+                       service_del : del,
+                   }
+                {
+                    $.ajax({
+                        url: '/Admin/delete/',
+                        data: JSON.stringify(deletes),
+                        type: 'post',
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            var dt = data.data.ID;
+
+                                $('#row_'+dt).hide();
+
+
+                        }
+                    });
+                    error: {
+
+                    }
+                }
+            }
+            return false;
+        }
+
+</script>
+
